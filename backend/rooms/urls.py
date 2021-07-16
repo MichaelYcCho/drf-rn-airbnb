@@ -1,9 +1,10 @@
 from django.urls import path
-from rooms.views import list_rooms
+from rooms.views import ListRoomsView, SeeRoomView
 
 
 app_name = "rooms"
 
 urlpatterns = [
-    path('list/', list_rooms),
+    path('list/', ListRoomsView.as_view()),
+    path("<int:pk>/", SeeRoomView.as_view()),
 ]
