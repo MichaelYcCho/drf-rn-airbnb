@@ -7,7 +7,7 @@ Airbnb Clone using Django REST Framework and ReactNative
 - [x] List Rooms
 - [ ] Filter Rooms
 - [ ] Search By Coords
-- [ ] Login
+- [x] Login
 - [x] Create Account
 - [x] See Room
 - [x] Add Room to Favourites
