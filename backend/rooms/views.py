@@ -25,6 +25,7 @@ class RoomViewSet(ModelViewSet):
             permission_classes = [IsOwner]
         return [permission() for permission in permission_classes]
 
+
 @api_view(["GET"])
 def room_search(request):
     max_price = request.GET.get("max_price", None)
