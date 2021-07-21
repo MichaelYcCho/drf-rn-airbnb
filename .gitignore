@@ -128,3 +128,16 @@ dmypy.json
 # Pyre type checker
 .pyre/
 .DS_Store
+
+
+
+node_modules/
+.expo/
+npm-debug.*
+*.jks
+*.p8
+*.p12
+*.key
+*.mobileprovision
+*.orig.*
+web-build/
