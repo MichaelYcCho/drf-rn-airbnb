@@ -7,7 +7,8 @@ import { Ionicons } from "@expo/vector-icons";
 import { Provider } from 'react-redux';
 
 import Gate from "./components/Gate";
-import store from "./redux/store";
+import store, { persistor } from "./redux/store";
+import { PersistGate } from "redux-persist/integration/react";
 
 const cacheImages = images =>
   images.map(image => {
@@ -35,7 +36,9 @@ export default function App() {
   };
   return isReady ? (
     <Provider store={store}>
-      <Gate />
+      <PersistGate persistor={persistor}>
+        <Gate />
+      </PersistGate>
     </Provider>
   ) : (
     <AppLoading
