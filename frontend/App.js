@@ -26,7 +26,7 @@ export default function App() {
   const handleFinish = () => setIsReady(true);
   const loadAssets = async () => {
     const images = [
-      require("./assets/loginBg.jpg"),
+      require("./assets/loginBg.jpeg"),
       "http://logok.org/wp-content/uploads/2014/07/airbnb-logo-belo-219x286.png"
     ];
     const fonts = [Ionicons.font];
