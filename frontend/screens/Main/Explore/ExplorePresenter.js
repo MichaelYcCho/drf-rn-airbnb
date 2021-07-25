@@ -10,7 +10,7 @@ const Container = styled.View`
 const Text = styled.Text``;
 
 export default () => (
-  <Container>
-    <Text>Explore</Text>
-  </Container>
+    <Container>
+        <Text>Explore</Text>
+    </Container>
 );
