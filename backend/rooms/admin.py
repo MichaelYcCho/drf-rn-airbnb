@@ -6,6 +6,7 @@ from . import models
 class RoomAdmin(admin.ModelAdmin):
 
     list_display = (
+        "user",
         "name",
         "photo_number",
     )

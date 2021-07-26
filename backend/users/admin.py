@@ -10,4 +10,4 @@ class UserAdmin(UserAdmin):
         ("Custom Profile", {"fields": ("avatar", "superhost", "favs")},),
     )
 
-    list_display = UserAdmin.list_display + ("room_count",)
+    list_display = UserAdmin.list_display + ("id", "superhost", "room_count",)

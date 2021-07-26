@@ -40,6 +40,7 @@ export const getRooms = () => async dispatch => {
                 page: 1
             })
         );
+        console.log('room!!!!!!', rooms)
     } catch (e) { }
 };
 
