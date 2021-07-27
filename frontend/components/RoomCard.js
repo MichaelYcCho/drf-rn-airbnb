@@ -49,6 +49,7 @@ const PhotosContainer = styled.View`
   overflow: hidden;
   width: 100%;
   height: ${height / 4}px;
+  border-radius: 4px;
 `;
 
 const SlideImage = styled.Image`
@@ -57,45 +58,50 @@ const SlideImage = styled.Image`
 `;
 
 const RoomCard = ({ id, isFav, isSuperHost, photos, name, price }) => (
-    <Container>
-        <PhotosContainer>
-            {photos.length === 0 ? (
-                <SlideImage
-                    resizeMode="repeat"
-                    source={require("../assets/roomDefault.jpg")}
-                />
-            ) : (
-                <Swiper>
-                    {photos.map(photo => (
-                        <SlideImage key={photo.id} source={{ uri: photo.file }} />
-                    ))}
-                </Swiper>
-            )}
-        </PhotosContainer>
-        {isSuperHost ? (
-            <Superhost>
-                <SuperhostText>Superhost</SuperhostText>
-            </Superhost>
-        ) : null}
-        <Name>{name}</Name>
-        <PriceContainer>
-            <PriceNumber>${price}</PriceNumber>
-            <PriceText> / night</PriceText>
-        </PriceContainer>
-    </Container>
+  <Container>
+    <PhotosContainer>
+      {photos.length === 0 ? (
+        <SlideImage
+          resizeMode="repeat"
+          source={require("../assets/roomDefault.jpg")}
+        />
+      ) : (
+        <Swiper
+          removeClippedSubviews
+          paginationStyle={{ marginBottom: -15 }}
+          dotColor={"rgba(200, 200, 200, 0.8)"}
+          activeDotColor={"white"}
+        >
+          {photos.map(photo => (
+            <SlideImage key={photo.id} source={{ uri: photo.file }} />
+          ))}
+        </Swiper>
+      )}
+    </PhotosContainer>
+    {isSuperHost ? (
+      <Superhost>
+        <SuperhostText>Superhost</SuperhostText>
+      </Superhost>
+    ) : null}
+    <Name>{name}</Name>
+    <PriceContainer>
+      <PriceNumber>${price}</PriceNumber>
+      <PriceText> / night</PriceText>
+    </PriceContainer>
+  </Container>
 );
 
 RoomCard.propTypes = {
-    id: Pt.number.isRequired,
-    isFav: Pt.bool.isRequired,
-    isSuperHost: Pt.bool.isRequired,
-    photos: Pt.arrayOf(
-        Pt.shape({
-            file: Pt.string
-        })
-    ),
-    name: Pt.string.isRequired,
-    price: Pt.number.isRequired
+  id: Pt.number.isRequired,
+  isFav: Pt.bool.isRequired,
+  isSuperHost: Pt.bool.isRequired,
+  photos: Pt.arrayOf(
+    Pt.shape({
+      file: Pt.string
+    })
+  ),
+  name: Pt.string.isRequired,
+  price: Pt.number.isRequired
 };
 
 export default RoomCard;
