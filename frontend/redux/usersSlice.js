@@ -1,6 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 import api from "../api";
-import { setFavs } from "./roomsSlice";
+import { setFavs, setFav } from "./roomsSlice";
 
 const userSlice = createSlice({
     name: "users",
@@ -52,9 +52,9 @@ export const toggleFav = roomId => async (dispatch, getState) => {
     const {
         usersReducer: { id, token }
     } = getState();
+    dispatch(setFav({ roomId }));
     try {
         const { status } = await api.toggleFavs(id, roomId, token);
-        console.log(status);
     } catch (e) {
         console.warn(e);
     }
